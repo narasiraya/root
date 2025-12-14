@@ -29,7 +29,7 @@ const SOCIAL_MEDIA = [
 
 export default function Page() {
   return (
-    <main className="mx-auto flex w-full max-w-md flex-col gap-8 px-6 py-6">
+    <main className="mx-auto flex w-full max-w-md flex-col gap-8 px-6 py-10">
       <Card className="pt-0 shadow-sm">
         <div className="relative h-50">
           <Image
