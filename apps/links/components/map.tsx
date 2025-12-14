@@ -13,7 +13,7 @@ export function MapCard() {
   return (
     <section className="space-y-1">
       <h2 className="font-medium text-lg">Lokasi</h2>
-      <div className="relative h-90 w-full overflow-clip rounded-2xl shadow-sm ring ring-foreground/10">
+      <div className="relative h-90 w-full overflow-clip rounded-2xl shadow-sm ring-1 ring-foreground/10">
         <Badge
           variant="outline"
           className="absolute bottom-4 left-4 z-30 backdrop-blur-sm"

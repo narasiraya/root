@@ -102,7 +102,7 @@ function SocialMediaCard(props: {
       prefetch={false}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex min-h-32 flex-col gap-2 rounded-2xl border bg-background p-4 text-sm shadow-sm ring-accent transition-all hover:cursor-pointer hover:ring-4 active:scale-95"
+      className="group flex min-h-32 flex-col gap-2 rounded-2xl bg-background p-4 text-sm shadow-sm ring-1 ring-foreground/10 transition-all hover:cursor-pointer hover:ring-4 active:scale-95"
     >
       <Image
         src={props.src}
