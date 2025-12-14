@@ -13,12 +13,16 @@ export function MapCard() {
   return (
     <section className="space-y-1">
       <h2 className="font-medium text-lg">Lokasi</h2>
-      <div className="relative h-90 w-full overflow-clip rounded-2xl">
-        <Badge variant="outline" className="absolute backdrop-blur-sm top-4 right-4 z-30">
+      <div className="relative h-90 w-full overflow-clip rounded-2xl shadow-sm ring ring-foreground/10">
+        <Badge
+          variant="outline"
+          className="absolute bottom-4 left-4 z-30 backdrop-blur-sm"
+        >
           Banggai, Sulawesi Tengah
         </Badge>
         <MapGL
           ref={mapRef}
+          attributionControl={false}
           initialViewState={{
             longitude: LNG,
             latitude: LAT,
@@ -43,8 +47,6 @@ export function MapCard() {
             </div>
           </Marker>
         </MapGL>
-
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-1/2 bg-linear-to-t from-white via-white to-transparent" />
       </div>
     </section>
   );

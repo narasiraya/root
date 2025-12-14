@@ -29,53 +29,52 @@ const SOCIAL_MEDIA = [
 
 export default function Page() {
   return (
-    <>
-      <main className="mx-auto flex w-full max-w-md flex-col gap-8 px-6 py-16">
-        <Card className="shadow-sm">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-3 font-serif text-2xl">
-              <Avatar className={"ring-0"}>
-                <AvatarImage
-                  src="logo.svg"
-                  alt="Logo Narasiraya"
-                  className={"ring-0"}
-                />
-                <AvatarFallback>NS</AvatarFallback>
-              </Avatar>
-              Narasiraya
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <CardDescription>
-              KKN-PPM UGM PERIODE II 2026 Kecamatan Simpang Raya, Kabupaten
-              Banggai, Sulawesi Tengah ⛰️✨
-            </CardDescription>
-          </CardContent>
-        </Card>
+    <main className="mx-auto flex w-full max-w-md flex-col gap-8 px-6 py-16">
+      <Card className="pt-0 shadow-sm">
+        <div className="relative h-50">
+          <Image
+            src={"/background.webp"}
+            alt="Background Narasiraya"
+            fill
+            className="pointer-events-none z-0 select-none object-cover"
+          />
+          <div className="absolute inset-0 z-10 bg-linear-to-t from-card via-card/70 to-transparent" />
+        </div>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-3 font-serif text-2xl">
+            <Avatar className={"ring-0"}>
+              <AvatarImage
+                src="logo.svg"
+                alt="Logo Narasiraya"
+                className={"ring-0"}
+              />
+              <AvatarFallback>NS</AvatarFallback>
+            </Avatar>
+            Narasiraya
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <CardDescription>
+            KKN-PPM UGM PERIODE II 2026 Kecamatan Simpang Raya, Kabupaten
+            Banggai, Sulawesi Tengah ⛰️✨
+          </CardDescription>
+        </CardContent>
+      </Card>
 
-        <section className="space-y-1">
-          <h2 className="font-medium text-lg">Tautan</h2>
+      <section className="space-y-1">
+        <h2 className="font-medium text-lg">Tautan</h2>
 
-          <div className="grid grid-cols-2 gap-4 sm:gap-8">
-            {SOCIAL_MEDIA.map((social) => (
-              <SocialMediaCard key={social.name} {...social} />
-            ))}
-          </div>
-        </section>
+        <div className="grid grid-cols-2 gap-4 sm:gap-8">
+          {SOCIAL_MEDIA.map((social) => (
+            <SocialMediaCard key={social.name} {...social} />
+          ))}
+        </div>
+      </section>
 
-        <MapCard />
+      <MapCard />
 
-        <Footer />
-      </main>
-
-      <Image
-        src={"/background.webp"}
-        alt="Background Narasiraya"
-        fill
-        className="-z-10 pointer-events-none select-none object-cover opacity-50"
-      />
-      <div className="-z-10 absolute inset-x-0 top-0 h-screen bg-linear-to-b from-transparent via-background/80 to-background" />
-    </>
+      <Footer />
+    </main>
   );
 }
 
@@ -105,7 +104,13 @@ function SocialMediaCard(props: {
       rel="noopener noreferrer"
       className="group flex min-h-32 flex-col gap-2 rounded-2xl border bg-background p-4 text-sm shadow-sm ring-accent transition-all hover:cursor-pointer hover:ring-4 active:scale-95"
     >
-      <Image src={props.src} alt={props.name} width={40} height={40} className="shadow-sm overflow-clip rounded-lg border border-border" />
+      <Image
+        src={props.src}
+        alt={props.name}
+        width={40}
+        height={40}
+        className="overflow-clip rounded-lg border border-border shadow-sm"
+      />
       <div className="mb-2">
         <p>{props.name}</p>
         <p className="text-muted-foreground text-xs">{props.username}</p>
