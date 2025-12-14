@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Figtree, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
+const sagita = localFont({
+  src: "../public/sagita.woff",
+  variable: "--font-serif",
+});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -27,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${figtree.className} ${geistMono.variable} min-h-screen antialiased`}
+        className={`${figtree.className} ${sagita.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
         {children}
       </body>
