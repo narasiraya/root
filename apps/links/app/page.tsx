@@ -56,7 +56,7 @@ export default function Page() {
         <section className="space-y-1">
           <h2 className="font-medium text-lg">Tautan</h2>
 
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 gap-4 sm:gap-8">
             {SOCIAL_MEDIA.map((social) => (
               <SocialMediaCard key={social.name} {...social} />
             ))}
