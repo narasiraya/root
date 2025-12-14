@@ -29,7 +29,7 @@ const SOCIAL_MEDIA = [
 
 export default function Page() {
   return (
-    <main className="mx-auto flex w-full max-w-md flex-col gap-8 px-6 py-16">
+    <main className="mx-auto flex w-full max-w-md flex-col gap-8 px-6 py-6">
       <Card className="pt-0 shadow-sm">
         <div className="relative h-50">
           <Image
@@ -38,7 +38,7 @@ export default function Page() {
             fill
             className="pointer-events-none z-0 select-none object-cover"
           />
-          <div className="absolute inset-0 z-10 bg-linear-to-t from-card via-card/70 to-transparent" />
+          <div className="absolute inset-0 z-10 bg-linear-to-t from-card via-card/10 to-transparent" />
         </div>
         <CardHeader>
           <CardTitle className="flex items-center gap-3 font-serif text-2xl">
