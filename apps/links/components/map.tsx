@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import MapGL, { type MapRef, Marker } from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { Badge } from "./ui/badge";
 
 export function MapCard() {
   const mapRef = useRef<MapRef>(null);
@@ -11,8 +12,11 @@ export function MapCard() {
 
   return (
     <section className="space-y-1">
-      <h2 className="font-medium text-sm">Lokasi</h2>
+      <h2 className="font-medium text-lg">Lokasi</h2>
       <div className="relative h-90 w-full overflow-clip rounded-2xl">
+        <Badge variant="outline" className="absolute backdrop-blur-sm top-4 right-4 z-30">
+          Banggai, Sulawesi Tengah
+        </Badge>
         <MapGL
           ref={mapRef}
           initialViewState={{
@@ -25,12 +29,12 @@ export function MapCard() {
             mapRef.current?.flyTo({
               center: [LNG, LAT],
               zoom: 12,
-              pitch: 45,
+              pitch: 70,
               duration: 3000,
             });
           }}
           style={{ width: "100%", height: "100%" }}
-          mapStyle="https://tiles.openfreemap.org/styles/positron"
+          mapStyle="https://tiles.openfreemap.org/styles/bright"
         >
           <Marker longitude={LNG} latitude={LAT} anchor="center">
             <div className="relative flex h-4 w-4">
