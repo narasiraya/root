@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import * as m from "@/lib/motion";
 
 const SOCIAL_MEDIA = [
   {
@@ -30,43 +31,85 @@ const SOCIAL_MEDIA = [
 export default function Page() {
   return (
     <main className="mx-auto flex w-full max-w-md flex-col gap-8 px-6 py-10">
-      <Card className="pt-0 shadow-sm">
-        <div className="relative h-50">
-          <Image
-            src={"/background.webp"}
-            alt="Background Narasiraya"
-            fill
-            className="pointer-events-none z-0 select-none object-cover"
-          />
-          <div className="absolute inset-0 z-10 bg-linear-to-t from-card via-card/10 to-transparent" />
-        </div>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-3 font-serif text-2xl">
-            <Avatar className={"ring-0"}>
-              <AvatarImage
-                src="logo.svg"
-                alt="Logo Narasiraya"
-                className={"ring-0"}
-              />
-              <AvatarFallback>NS</AvatarFallback>
-            </Avatar>
-            Narasiraya
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <CardDescription>
-            KKN-PPM UGM PERIODE II 2026 Kecamatan Simpang Raya, Kabupaten
-            Banggai, Sulawesi Tengah ⛰️✨
-          </CardDescription>
-        </CardContent>
-      </Card>
+      <m.div
+        initial={{
+          y: 20,
+          opacity: 0,
+        }}
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      >
+        <Card className="pt-0 shadow-sm">
+          <div className="relative h-50">
+            <Image
+              src={"/background.webp"}
+              alt="Background Narasiraya"
+              fill
+              className="pointer-events-none z-0 select-none object-cover"
+            />
+            <div className="absolute inset-0 z-10 bg-linear-to-t from-card via-card/10 to-transparent" />
+          </div>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-3 font-serif text-2xl">
+              <Avatar className={"ring-0"}>
+                <AvatarImage
+                  src="logo.svg"
+                  alt="Logo Narasiraya"
+                  className={"ring-0"}
+                />
+                <AvatarFallback>NS</AvatarFallback>
+              </Avatar>
+              Narasiraya
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription>
+              KKN-PPM UGM PERIODE II 2026 Kecamatan Simpang Raya, Kabupaten
+              Banggai, Sulawesi Tengah ⛰️✨
+            </CardDescription>
+          </CardContent>
+        </Card>
+      </m.div>
 
       <section className="space-y-1">
-        <h2 className="font-medium text-lg">Tautan</h2>
+        <m.h2
+          initial={{
+            y: 20,
+            opacity: 0,
+          }}
+          animate={{
+            y: 0,
+            opacity: 1,
+          }}
+          transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
+          className="font-medium text-lg"
+        >
+          Tautan
+        </m.h2>
 
         <div className="grid grid-cols-2 gap-4 sm:gap-8">
-          {SOCIAL_MEDIA.map((social) => (
-            <SocialMediaCard key={social.name} {...social} />
+          {SOCIAL_MEDIA.map((social, i) => (
+            <m.div
+              initial={{
+                y: 20,
+                opacity: 0,
+              }}
+              animate={{
+                y: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+                delay: 0.05 + 0.05 * (i + 1),
+              }}
+              key={social.name}
+            >
+              <SocialMediaCard {...social} />
+            </m.div>
           ))}
         </div>
       </section>

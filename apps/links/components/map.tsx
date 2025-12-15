@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import MapGL, { type MapRef, Marker } from "react-map-gl/maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
+import * as m from "@/lib/motion";
 import { Badge } from "./ui/badge";
 
 export function MapCard() {
@@ -12,8 +13,32 @@ export function MapCard() {
 
   return (
     <section className="space-y-1">
-      <h2 className="font-medium text-lg">Lokasi</h2>
-      <div className="relative h-90 w-full overflow-clip rounded-2xl shadow-sm ring-1 ring-foreground/10">
+      <m.h2
+        initial={{
+          y: 20,
+          opacity: 0,
+        }}
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 }}
+        className="font-medium text-lg"
+      >
+        Lokasi
+      </m.h2>
+      <m.div
+        initial={{
+          y: 20,
+          opacity: 0,
+        }}
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
+        className="relative h-90 w-full overflow-clip rounded-2xl shadow-sm ring-1 ring-foreground/10"
+      >
         <Badge
           variant="outline"
           className="absolute bottom-4 left-4 z-30 backdrop-blur-sm"
@@ -47,7 +72,7 @@ export function MapCard() {
             </div>
           </Marker>
         </MapGL>
-      </div>
+      </m.div>
     </section>
   );
 }
