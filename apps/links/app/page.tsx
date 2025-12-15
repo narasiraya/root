@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Announcement } from "@/components/announcement";
 import { Footer } from "@/components/footer";
 import { MapCard } from "@/components/map";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -12,7 +13,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import * as m from "@/lib/motion";
-import { Announcement } from "@/components/announcement";
 
 const SOCIAL_MEDIA = [
   {
