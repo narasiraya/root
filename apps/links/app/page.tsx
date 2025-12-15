@@ -12,6 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import * as m from "@/lib/motion";
+import { Announcement } from "@/components/announcement";
 
 const SOCIAL_MEDIA = [
   {
@@ -31,6 +32,7 @@ const SOCIAL_MEDIA = [
 export default function Page() {
   return (
     <main className="mx-auto flex w-full max-w-md flex-col gap-8 px-6 py-10">
+      <Announcement />
       <m.div
         initial={{
           y: 20,
