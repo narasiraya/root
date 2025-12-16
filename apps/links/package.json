@@ -6,7 +6,9 @@
     "dev": "next dev --port=3001",
     "build": "next build",
     "start": "next start --port=3001",
-    "lint": "biome check ."
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write",
+    "check-types": "next typegen && tsgo --noEmit"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",

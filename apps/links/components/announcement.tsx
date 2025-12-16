@@ -1,10 +1,25 @@
-import { Badge } from "./ui/badge";
+import { IconChevronRight } from "@tabler/icons-react";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 export function Announcement() {
   return (
     <div className="flex items-center justify-center gap-2">
-      <Badge variant="success">Info</Badge>
-      <p className="text-sm">Open Recruitment is coming soon!</p>
+      <p className="text-sm">Open recruitment sudah dibuka!</p>
+      <Button
+        render={
+          <Link
+            href={"https://bit.ly/OprecNarasiraya"}
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+        }
+        size="xs"
+        variant="outline"
+        nativeButton={false}
+      >
+        Daftar <IconChevronRight />
+      </Button>
     </div>
   );
 }
