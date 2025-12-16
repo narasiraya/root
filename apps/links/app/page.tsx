@@ -160,7 +160,7 @@ export default function Page() {
                   )}
                 >
                   <CardContent className="flex flex-row items-center gap-2 px-4">
-                    <div className="relative flex size-10 items-center justify-center rounded-lg bg-inherit p-1 shadow-sm ring ring-border">
+                    <div className="relative flex size-10 shrink-0 items-center justify-center rounded-lg bg-inherit p-1 shadow-sm ring ring-border">
                       <link.icon className={link.iconClass} />
                     </div>
                     <div className="flex flex-col justify-center gap-0 transition-transform group-hover:translate-x-1">
