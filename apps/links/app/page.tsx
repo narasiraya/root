@@ -41,12 +41,14 @@ const LINKS = [
     iconClass: "",
     title: "Guidebook",
     href: "/assets/guidebook.pdf",
+    download: true,
   },
   {
     icon: IconPhotoDown,
     iconClass: "",
     title: "Poster",
     href: "/assets/poster.png",
+    download: true,
   },
   {
     icon: IconConfetti,
@@ -142,8 +144,14 @@ export default function Page() {
               <Link
                 key={link.title}
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(link.download
+                  ? {
+                    download: link.download === true ? "" : link.download,
+                  }
+                  : {
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  })}
               >
                 <Card
                   className={cn(
