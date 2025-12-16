@@ -1,6 +1,7 @@
 import {
   IconBookDownload,
   IconConfetti,
+  IconDownload,
   IconPhotoDown,
 } from "@tabler/icons-react";
 import Image from "next/image";
@@ -155,7 +156,7 @@ export default function Page() {
               >
                 <Card
                   className={cn(
-                    "group py-4 ring-foreground/10 transition-all hover:ring-4",
+                    "group py-4 ring-foreground/10 transition-all hover:ring-4 active:scale-95",
                     link.cardClass,
                   )}
                 >
@@ -171,6 +172,16 @@ export default function Page() {
                         </p>
                       )}
                     </div>
+                    {link.download && (
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        className="ml-auto hover:cursor-pointer"
+                      >
+                        <IconDownload />
+                        <span className="max-[400px]:hidden">Unduh</span>
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               </Link>
