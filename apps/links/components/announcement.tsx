@@ -9,7 +9,7 @@ export function Announcement() {
       <Button
         render={
           <Link
-            href={"https://bit.ly/OprecNarasiraya"}
+            href={"https://forms.gle/7CTJrRDm3N1n5uH68"}
             target="_blank"
             rel="noopener noreferrer"
           />
