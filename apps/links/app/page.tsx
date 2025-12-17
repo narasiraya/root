@@ -55,7 +55,7 @@ const LINKS = [
     iconClass: "text-red-700",
     title: "Open Recruitment",
     description: "Mari berjalan bersama dalam satu proses pengabdian.",
-    href: "https://bit.ly/OprecNarasiraya",
+    href: "https://forms.gle/7CTJrRDm3N1n5uH68",
     cardClass: "bg-red-100/20",
   },
 ];
@@ -146,12 +146,12 @@ export default function Page() {
                 href={link.href}
                 {...(link.download
                   ? {
-                      download: link.download === true ? "" : link.download,
-                    }
+                    download: link.download === true ? "" : link.download,
+                  }
                   : {
-                      target: "_blank",
-                      rel: "noopener noreferrer",
-                    })}
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  })}
               >
                 <Card
                   className={cn(
