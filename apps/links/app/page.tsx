@@ -42,7 +42,6 @@ const LINKS = [
     iconClass: "",
     title: "Guidebook",
     href: "/assets/guidebook.pdf",
-    download: true,
   },
   {
     icon: IconPhotoDown,
@@ -147,12 +146,12 @@ export default function Page() {
                 href={link.href}
                 {...(link.download
                   ? {
-                    download: link.download === true ? "" : link.download,
-                  }
+                      download: link.download === true ? "" : link.download,
+                    }
                   : {
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                  })}
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    })}
               >
                 <Card
                   className={cn(
