@@ -4,6 +4,8 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "dev:links": "turbo run dev --filter=links",
+    "dev:web": "turbo run dev --filter=web",
     "lint": "biome check .",
     "lint:fix": "biome check . --write",
     "check-types": "turbo run check-types"

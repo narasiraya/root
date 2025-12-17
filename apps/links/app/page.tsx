@@ -1,3 +1,9 @@
+import {
+  IconBookDownload,
+  IconConfetti,
+  IconDownload,
+  IconPhotoDown,
+} from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Announcement } from "@/components/announcement";
@@ -13,6 +19,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import * as m from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
 const SOCIAL_MEDIA = [
   {
@@ -26,6 +33,30 @@ const SOCIAL_MEDIA = [
     username: "@narasi.siraya",
     href: "https://www.instagram.com/narasi.siraya",
     src: "/icons/instagram.svg",
+  },
+];
+
+const LINKS = [
+  {
+    icon: IconBookDownload,
+    iconClass: "",
+    title: "Guidebook",
+    href: "/assets/guidebook.pdf",
+  },
+  {
+    icon: IconPhotoDown,
+    iconClass: "",
+    title: "Poster",
+    href: "/assets/poster.png",
+    download: true,
+  },
+  {
+    icon: IconConfetti,
+    iconClass: "text-red-700",
+    title: "Open Recruitment",
+    description: "Mari berjalan bersama dalam satu proses pengabdian.",
+    href: "https://forms.gle/7CTJrRDm3N1n5uH68",
+    cardClass: "bg-red-100/20",
   },
 ];
 
@@ -92,6 +123,88 @@ export default function Page() {
           Tautan
         </m.h2>
 
+        <div className="flex flex-col gap-4">
+          {LINKS.map((link, i) => (
+            <m.div
+              key={link.title}
+              initial={{
+                y: 20,
+                opacity: 0,
+              }}
+              animate={{
+                y: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+                delay: 0.05 + 0.05 * (i + 1),
+              }}
+            >
+              <Link
+                key={link.title}
+                href={link.href}
+                {...(link.download
+                  ? {
+                    download: link.download === true ? "" : link.download,
+                  }
+                  : {
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  })}
+              >
+                <Card
+                  className={cn(
+                    "group py-4 ring-foreground/10 transition-all hover:ring-4 active:scale-95",
+                    link.cardClass,
+                  )}
+                >
+                  <CardContent className="flex flex-row items-center gap-2 px-4">
+                    <div className="relative flex size-10 shrink-0 items-center justify-center rounded-lg bg-inherit p-1 shadow-sm ring ring-border">
+                      <link.icon className={link.iconClass} />
+                    </div>
+                    <div className="flex flex-col justify-center gap-0 transition-transform group-hover:translate-x-1">
+                      <h3 className="font-medium text-sm">{link.title}</h3>
+                      {link.description && (
+                        <p className="text-muted-foreground text-xs">
+                          {link.description}
+                        </p>
+                      )}
+                    </div>
+                    {link.download && (
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        className="ml-auto hover:cursor-pointer"
+                      >
+                        <IconDownload />
+                        <span className="max-[400px]:hidden">Unduh</span>
+                      </Button>
+                    )}
+                  </CardContent>
+                </Card>
+              </Link>
+            </m.div>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-1">
+        <m.h2
+          initial={{
+            y: 20,
+            opacity: 0,
+          }}
+          animate={{
+            y: 0,
+            opacity: 1,
+          }}
+          transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
+          className="font-medium text-lg"
+        >
+          Media Sosial
+        </m.h2>
+
         <div className="grid grid-cols-2 gap-4 sm:gap-8">
           {SOCIAL_MEDIA.map((social, i) => (
             <m.div
@@ -117,7 +230,6 @@ export default function Page() {
       </section>
 
       <MapCard />
-
       <Footer />
     </main>
   );
@@ -149,15 +261,17 @@ function SocialMediaCard(props: {
       rel="noopener noreferrer"
       className="group flex min-h-32 flex-col gap-2 rounded-2xl bg-background p-4 text-sm shadow-sm ring-1 ring-foreground/10 transition-all hover:cursor-pointer hover:ring-4 active:scale-95"
     >
-      <Image
-        src={props.src}
-        alt={props.name}
-        width={40}
-        height={40}
-        className="overflow-clip rounded-lg border border-border shadow-sm"
-      />
+      <div className="relative size-10 overflow-clip rounded-lg shadow-sm ring ring-border">
+        <Image
+          src={props.src}
+          alt={props.name}
+          fill
+          sizes="100%"
+          className="object-cover"
+        />
+      </div>
       <div className="mb-2">
-        <p>{props.name}</p>
+        <h3>{props.name}</h3>
         <p className="text-muted-foreground text-xs">{props.username}</p>
       </div>
 
