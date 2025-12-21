@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 export function Announcement() {
   return (
     <div className="flex items-center justify-center gap-2 max-[400px]:flex-col max-[400px]:text-center">
-      <p className="text-pretty text-sm">Open recruitment sudah dibuka!</p>
+      <p className="text-pretty text-sm">Open recruitment diperpanjang!</p>
       <Button
         render={
           <Link
