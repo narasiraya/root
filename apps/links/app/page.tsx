@@ -56,6 +56,7 @@ const LINKS = [
     title: "Open Recruitment",
     description: "Mari berjalan bersama dalam satu proses pengabdian.",
     href: "https://forms.gle/7CTJrRDm3N1n5uH68",
+    disabled: true,
     cardClass: "bg-red-100/20",
   },
 ];
@@ -144,6 +145,7 @@ export default function Page() {
               <Link
                 key={link.title}
                 href={link.href}
+                aria-disabled={link.disabled}
                 {...(link.download
                   ? {
                     download: link.download === true ? "" : link.download,
@@ -152,6 +154,9 @@ export default function Page() {
                     target: "_blank",
                     rel: "noopener noreferrer",
                   })}
+                className={
+                  link.disabled ? "pointer-events-none opacity-50" : ""
+                }
               >
                 <Card
                   className={cn(
